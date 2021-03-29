@@ -1,4 +1,5 @@
 from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk
+from tkinter import simpledialog
 
 class RockPaperScissors():
     def __init__(self, master):
@@ -28,8 +29,11 @@ class RockPaperScissors():
         self.master.bind('<Control-i>', lambda event: self.aboutmenu())
 
     def newgame(self):
-        pass
-    
+        self.numberofrounds = simpledialog.askinteger("Number of rounds",
+                                                      "Enter the number of rounds",
+                                                      parent=self.master,
+                                                      minvalue=1)
+
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
