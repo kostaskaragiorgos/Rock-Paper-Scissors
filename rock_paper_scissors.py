@@ -1,5 +1,6 @@
 from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk, Label
 from tkinter import simpledialog
+from random import choice
 
 class RockPaperScissors():
     def __init__(self, master):
@@ -8,6 +9,7 @@ class RockPaperScissors():
         self.master.geometry("250x200")
         self.master.resizable(False, False)
         self.score = [0,0]
+        self.choices = ["", ""]
         self.numberofrounds = 0
 
 
@@ -43,7 +45,22 @@ class RockPaperScissors():
 
     
     def play(self):
-        pass
+        self.choices[0] = self.var_cat_list.get()
+        self.choices[1] = choice(self.var_cat_list)
+        if self.choices[0] == self.choices[1]:
+            msg.showinfo("Tie", "Tie")
+        elif self.choices[0] == "Rock" and self.choices[1] != "Paper":
+            self.score[0] += 1
+            msg.showinfo("User", "User")
+        elif self.choices[0] == "Paper" and self.choices[1] == "Rock":
+            self.score[0] += 1
+            msg.showinfo("User", "User")
+        elif self.choices[0] == "Scissors" and self.choices[1] == "Paper":
+            self.score[0] += 1
+            msg.showinfo("User", "User")
+        else:
+            self.score[1] += 1
+            msg.showinfo("Computer", "Computer")
 
     def newgame(self):
         self.numberofrounds = simpledialog.askinteger("Number of rounds",
