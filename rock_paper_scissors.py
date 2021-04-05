@@ -13,10 +13,10 @@ class RockPaperScissors():
         self.numberofrounds = 0
 
 
-        category_list = list(["Rock", "Paper", "Scissors"])
+        self.category_list = list(["Rock", "Paper", "Scissors"])
         self.var_cat_list = StringVar(master)
-        self.var_cat_list.set(category_list[0])
-        self.popupcatlistmenu = OptionMenu(self.master, self.var_cat_list, *category_list)
+        self.var_cat_list.set(self.category_list[0])
+        self.popupcatlistmenu = OptionMenu(self.master, self.var_cat_list, *self.category_list)
         self.popupcatlistmenu.pack()
 
         self.playb = Button(self.master, text="Play", command=self.play)
@@ -46,7 +46,7 @@ class RockPaperScissors():
     
     def play(self):
         self.choices[0] = self.var_cat_list.get()
-        self.choices[1] = choice(self.var_cat_list)
+        self.choices[1] = choice(self.category_list)
         if self.choices[0] == self.choices[1]:
             msg.showinfo("Tie", "Tie")
         elif self.choices[0] == "Rock" and self.choices[1] != "Paper":
