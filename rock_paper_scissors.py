@@ -1,5 +1,5 @@
 from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk, Label
-from tkinter import simpledialog
+from tkinter import simpledialog, scrolledtext , WORD
 from random import choice
 
 class RockPaperScissors():
@@ -21,6 +21,15 @@ class RockPaperScissors():
 
         self.playb = Button(self.master, text="Play", command=self.play)
         self.playb.pack()
+
+        log_area = scrolledtext.ScrolledText(self.master,
+                                             wrap = WORD,
+                                             width = 40,
+                                             height = 10,
+                                             font = ("Times New Roman", 15))
+        log_area.configure(state='disabled')
+        log_area.pack()
+
         
         self.menu = Menu(self.master)
         
