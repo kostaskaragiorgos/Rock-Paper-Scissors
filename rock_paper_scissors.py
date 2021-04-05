@@ -17,6 +17,12 @@ class RockPaperScissors():
         self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
         self.scorelabel.pack()
 
+        category_list = list(["Rock", "Paper", "Scissors"])
+        self.var_cat_list = StringVar(master)
+        self.var_cat_list.set(category_list[0])
+        self.popupcatlistmenu = OptionMenu(self.master, self.var_cat_list, *category_list)
+        self.popupcatlistmenu.pack()
+
         self.playb = Button(self.master, text="Play", command=self.play)
         self.playb.pack()
         
