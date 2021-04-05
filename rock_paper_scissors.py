@@ -1,4 +1,4 @@
-from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk
+from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk, Label
 from tkinter import simpledialog
 
 class RockPaperScissors():
@@ -7,11 +7,24 @@ class RockPaperScissors():
         self.master.title("ROCK PAPER SCISSORS")
         self.master.geometry("250x200")
         self.master.resizable(False, False)
+        self.score = [0,0]
+        self.numberofrounds = 0
+
+
+        self.roundslabel = Label(self.master, text="Number of rounds: " +str(self.numberofrounds))
+        self.roundslabel.pack()
+
+        self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
+        self.scorelabel.pack()
+
+        self.playb = Button(self.master, text="Play", command=self.play)
+        self.playb.pack()
         
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu, tearoff = 0)
         self.file_menu.add_command(label="New Game", accelerator='Ctrl+O', command=self.newgame)
+        self.file_menu.add_command(label="Load Game")
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command = self.exitmenu)
         self.menu.add_cascade(label = "File", menu=self.file_menu)
         
@@ -27,6 +40,10 @@ class RockPaperScissors():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
         self.master.bind('<Control-i>', lambda event: self.aboutmenu())
+
+    
+    def play(self):
+        pass
 
     def newgame(self):
         self.numberofrounds = simpledialog.askinteger("Number of rounds",
