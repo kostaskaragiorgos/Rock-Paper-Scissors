@@ -11,12 +11,6 @@ class RockPaperScissors():
         self.numberofrounds = 0
 
 
-        self.roundslabel = Label(self.master, text="Number of rounds: " +str(self.numberofrounds))
-        self.roundslabel.pack()
-
-        self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
-        self.scorelabel.pack()
-
         category_list = list(["Rock", "Paper", "Scissors"])
         self.var_cat_list = StringVar(master)
         self.var_cat_list.set(category_list[0])
@@ -53,9 +47,20 @@ class RockPaperScissors():
 
     def newgame(self):
         self.numberofrounds = simpledialog.askinteger("Number of rounds",
-                                                      "Enter the number of rounds",
-                                                      parent=self.master,
-                                                      minvalue=1)
+                                                          "Enter the number of rounds",
+                                                          parent=self.master,
+                                                          minvalue=1)
+        while self.numberofrounds == 0:
+            self.numberofrounds = simpledialog.askinteger("Number of rounds",
+                                                          "Enter the number of rounds",
+                                                          parent=self.master,
+                                                          minvalue=1)
+        
+        self.roundslabel = Label(self.master, text="Number of rounds: " +str(self.numberofrounds))
+        self.roundslabel.pack()
+
+        self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
+        self.scorelabel.pack()
 
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
