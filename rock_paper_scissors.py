@@ -29,13 +29,13 @@ class RockPaperScissors():
         self.playb = Button(self.master, text="Play", state='disabled', command=self.play)
         self.playb.pack()
 
-        log_area = scrolledtext.ScrolledText(self.master,
+        self.log_area = scrolledtext.ScrolledText(self.master,
                                              wrap = WORD,
                                              width = 40,
                                              height = 10,
                                              font = ("Times New Roman", 15))
-        log_area.configure(state='disabled')
-        log_area.pack()
+        self.log_area.configure(state='disabled')
+        self.log_area.pack()
 
         
         self.menu = Menu(self.master)
@@ -80,7 +80,6 @@ class RockPaperScissors():
         else:
             self.score[1] += 1
             msg.showinfo("Computer", "Computer")
-        
         self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
         self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
         if self.numberofrounds == 0:
