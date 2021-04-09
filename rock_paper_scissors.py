@@ -78,6 +78,7 @@ class RockPaperScissors():
         else:
             self.score[1] += 1
             msg.showinfo("Computer", "Computer")
+        self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
 
     def newgame(self):
         self.numberofrounds = simpledialog.askinteger("Number of rounds",
