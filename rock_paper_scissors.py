@@ -6,11 +6,17 @@ class RockPaperScissors():
     def __init__(self, master):
         self.master = master
         self.master.title("ROCK PAPER SCISSORS")
-        self.master.geometry("250x200")
+        self.master.geometry("250x300")
         self.master.resizable(False, False)
         self.score = [0,0]
         self.choices = ["", ""]
         self.numberofrounds = 0
+
+        self.roundslabel = Label(self.master, text="Number of rounds: " +str(self.numberofrounds))
+        self.roundslabel.pack()
+
+        self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
+        self.scorelabel.pack()
 
 
         self.category_list = list(["Rock", "Paper", "Scissors"])
@@ -63,9 +69,11 @@ class RockPaperScissors():
             msg.showinfo("User", "User")
         elif self.choices[0] == "Paper" and self.choices[1] == "Rock":
             self.score[0] += 1
+            
             msg.showinfo("User", "User")
         elif self.choices[0] == "Scissors" and self.choices[1] == "Paper":
             self.score[0] += 1
+          
             msg.showinfo("User", "User")
         else:
             self.score[1] += 1
@@ -81,13 +89,7 @@ class RockPaperScissors():
                                                           "Enter the number of rounds",
                                                           parent=self.master,
                                                           minvalue=1)
-        
-        self.roundslabel = Label(self.master, text="Number of rounds: " +str(self.numberofrounds))
-        self.roundslabel.pack()
-
-        self.scorelabel = Label(self.master, text="Score: "+str(self.score[0])+"-"+str(self.score[1]))
-        self.scorelabel.pack()
-
+        self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
