@@ -22,10 +22,10 @@ class RockPaperScissors():
         self.category_list = list(["Rock", "Paper", "Scissors"])
         self.var_cat_list = StringVar(master)
         self.var_cat_list.set(self.category_list[0])
-        self.popupcatlistmenu = OptionMenu(self.master, self.var_cat_list, *self.category_list)
+        self.popupcatlistmenu = OptionMenu(self.master, self.var_cat_list,   *self.category_list)
         self.popupcatlistmenu.pack()
 
-        self.playb = Button(self.master, text="Play", command=self.play)
+        self.playb = Button(self.master, text="Play", state='disabled', command=self.play)
         self.playb.pack()
 
         log_area = scrolledtext.ScrolledText(self.master,
@@ -91,6 +91,9 @@ class RockPaperScissors():
                                                           parent=self.master,
                                                           minvalue=1)
         self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
+        self.playb.configure(state='normal')
+        
+
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
