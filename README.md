@@ -7,7 +7,7 @@
 # Table of contents
 
 <!--ts-->
-  * [# Rock-Paper-Scissors](#Rock-Paper-Scissors)
+  * [Rock-Paper-Scissors](#Rock-Paper-Scissors)
   * [Table of contents](#Table_of_contents)
   * [Files/Folders](#Files/Folders)
   * [Dependencies](#Dependencies)
