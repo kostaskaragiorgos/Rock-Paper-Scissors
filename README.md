@@ -41,6 +41,7 @@ pip install -r requirements.txt
 
 ## Current Version
 
+<p><img src ="images/rockpaperscissors.png" title = "Rock Paper Scissors"/> </p>
 
 ## Documentation
 
