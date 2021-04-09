@@ -71,15 +71,19 @@ class RockPaperScissors():
             msg.showinfo("User", "User")
         elif self.choices[0] == "Paper" and self.choices[1] == "Rock":
             self.score[0] += 1
-            
             msg.showinfo("User", "User")
         elif self.choices[0] == "Scissors" and self.choices[1] == "Paper":
             self.score[0] += 1
-          
             msg.showinfo("User", "User")
         else:
             self.score[1] += 1
             msg.showinfo("Computer", "Computer")
+        logging.basicConfig()
+        logger1 = logging.getLogger('logger1')
+        logger1.setLevel(logging.INFO)
+        #self.log_area.configure(state='normal')
+        #self.log_area.insert("insert",chars = logger1.info("Round"+ str(self.numberofrounds) + "Player" + str(self.score[0]) + "Computer" + str(self.score[1])))
+        #self.log_area.configure(state='disabled')
         self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
         self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
         if self.numberofrounds == 0:
