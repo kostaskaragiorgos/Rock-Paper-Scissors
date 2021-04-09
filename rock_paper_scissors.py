@@ -62,6 +62,7 @@ class RockPaperScissors():
     def play(self):
         self.choices[0] = self.var_cat_list.get()
         self.choices[1] = choice(self.category_list)
+        self.numberofrounds -= 1
         if self.choices[0] == self.choices[1]:
             msg.showinfo("Tie", "Tie")
         elif self.choices[0] == "Rock" and self.choices[1] != "Paper":
@@ -79,6 +80,16 @@ class RockPaperScissors():
             self.score[1] += 1
             msg.showinfo("Computer", "Computer")
         self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
+        self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
+        if self.numberofrounds == 0:
+            self.playb.configure(state='disabled')
+            if self.score[0] > self.score[1]:
+                msg.showinfo("User is the winner", "User is the winner")
+            elif  self.score[0] < self.score[1]:
+                msg.showinfo("Computer is the winner", "Computer is the winner")
+            else:
+                msg.showinfo("Tie", "Tie")
+
 
     def newgame(self):
         self.numberofrounds = simpledialog.askinteger("Number of rounds",
@@ -91,6 +102,9 @@ class RockPaperScissors():
                                                           parent=self.master,
                                                           minvalue=1)
         self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
+        self.score[0] = 0
+        self.score[1] = 0
+        self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
         self.playb.configure(state='normal')
         
 
