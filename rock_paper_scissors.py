@@ -1,6 +1,7 @@
 from tkinter import Menu, Button, StringVar, OptionMenu, messagebox as msg, filedialog, Tk, Label
 from tkinter import simpledialog, scrolledtext , WORD
 from random import choice
+import logging
 
 class RockPaperScissors():
     def __init__(self, master):
@@ -79,6 +80,7 @@ class RockPaperScissors():
         else:
             self.score[1] += 1
             msg.showinfo("Computer", "Computer")
+        
         self.scorelabel['text'] ="Score: "+str(self.score[0])+"-"+str(self.score[1])
         self.roundslabel['text'] = "Number of rounds: " +str(self.numberofrounds)
         if self.numberofrounds == 0:
@@ -96,7 +98,7 @@ class RockPaperScissors():
                                                           "Enter the number of rounds",
                                                           parent=self.master,
                                                           minvalue=1)
-        while self.numberofrounds == 0:
+        while self.numberofrounds == 0 or self.numberofrounds is None:
             self.numberofrounds = simpledialog.askinteger("Number of rounds",
                                                           "Enter the number of rounds",
                                                           parent=self.master,
