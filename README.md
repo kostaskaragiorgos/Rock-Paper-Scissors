@@ -67,6 +67,7 @@ All project documentation is located in the `./doc`  folder.
 ## Keybinds
 
 <ul>
+  <li> New Game(Ctrl+O) </li>
   <li> Exit(Alt+F4) </li>
   <li> About(Ctrl+I) </li>
   <li> Help(Ctrl+F1) </li>
